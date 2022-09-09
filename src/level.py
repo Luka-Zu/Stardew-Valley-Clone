@@ -2,6 +2,7 @@ import pygame
 from settings import *
 from player import Player
 
+
 class Level:
     def __init__(self):
         # get the display surface
@@ -14,9 +15,8 @@ class Level:
 
     def setup(self):
         self.player = Player((640, 340), self.all_sprites)
+
     def run(self, dt):
         self.display_surface.fill('red')
         self.all_sprites.draw(self.display_surface)
         self.all_sprites.update(dt)
-
-

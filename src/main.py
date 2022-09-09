@@ -3,7 +3,7 @@ import sys
 
 from level import Level
 from settings import *
-
+from support import *
 
 class Game:
     def __init__(self):
@@ -26,5 +26,6 @@ class Game:
 
 
 if __name__ == '__main__':
+    import_folder("../graphics/character/down")
     game = Game()
     game.run()
