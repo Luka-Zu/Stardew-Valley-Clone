@@ -1,10 +1,11 @@
+import os
 from os import walk
+
 
 def import_folder(path):
     surface_list = []
 
-    for folder in walk(path):
-        print("huh")
-        print(folder)
+    for fl in os.walk(path, topdown=True):
+        print(fl)
 
     return surface_list

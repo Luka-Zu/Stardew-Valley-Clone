@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
                            'right_axe': [], 'left_axe': [], 'up_axe': [], 'down_axe': [],
                            'right_water': [], 'left_water': [], 'up_water': [], 'down_water': []}
         for animation in self.animations.keys():
-            full_path = '../graphics/character/' + animation
+            full_path = 'graphics/character/' + animation
             self.animations[animation] = import_folder(full_path)
 
     def input(self):

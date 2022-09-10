@@ -26,6 +26,6 @@ class Game:
 
 
 if __name__ == '__main__':
-    import_folder("../graphics/character/down")
+    # import_folder("../graphics/character/down")
     game = Game()
     game.run()
