@@ -1,3 +1,5 @@
+from pprint import pprint
+
 import pygame
 from settings import *
 from support import *
@@ -7,10 +9,12 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, pos, group):
         super().__init__(group)
         self.import_assets()
+        self.status = 'down_axe'
+        self.frame_index = 0
 
         # General setup
-        self.image = pygame.Surface((32, 64))
-        self.image.fill('green')
+        self.image = self.animations[self.status][self.frame_index]
+
         self.rect = self.image.get_rect(center=pos)
 
         # Movements attributes
@@ -27,6 +31,7 @@ class Player(pygame.sprite.Sprite):
         for animation in self.animations.keys():
             full_path = 'graphics/character/' + animation
             self.animations[animation] = import_folder(full_path)
+
 
     def input(self):
         keys = pygame.key.get_pressed()
