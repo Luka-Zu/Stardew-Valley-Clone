@@ -48,7 +48,6 @@ class Player(pygame.sprite.Sprite):
     def use_seed(self):
         pass
 
-
     def import_assets(self):
         self.animations = {'up': [], 'down': [], 'left': [], 'right': [],
                            'right_idle': [], 'left_idle': [], 'up_idle': [], 'down_idle': [],
@@ -109,7 +108,6 @@ class Player(pygame.sprite.Sprite):
                 self.timers['seed use'].activate()
                 self.direction = pygame.math.Vector2()
                 self.frame_index = 0
-                print("use seed")
 
             # Change seed
             if keys[pygame.K_e] and not self.timers['seed switch'].active:
@@ -118,7 +116,6 @@ class Player(pygame.sprite.Sprite):
                 if self.seed_index >= len(self.seeds):
                     self.seed_index = 0
                 self.selected_seed = self.seeds[self.seed_index]
-                print(self.selected_seed)
 
     def move(self, dt):
 
