@@ -37,6 +37,8 @@ class WildFlower(Generic):
     def __init__(self, pos, surf, group):
         super().__init__(pos, surf, group)
 
+
 class Tree(Generic):
-    def __init__(self):
-        pass
+    def __init__(self, pos, surf, group, name):
+        super().__init__(pos, surf, group)
+

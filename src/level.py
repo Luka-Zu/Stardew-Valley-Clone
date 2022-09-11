@@ -2,7 +2,7 @@ import pygame
 from settings import *
 from player import Player
 from overlay import Overlay
-from sprites import Generic, Water, WildFlower
+from sprites import Generic, Water, WildFlower, Tree
 from pytmx.util_pygame import load_pygame
 from support import import_folder
 class Level:
@@ -39,6 +39,8 @@ class Level:
             Water(pos=(TILE_SIZE * x, TILE_SIZE * y), frames=water_frames, group=self.all_sprites)
 
         # Trees
+        for obj in tmx_data.get_layer_by_name('Trees'):
+            Tree(pos=(obj.x, obj.y), surf=obj.image, group=self.all_sprites, name=obj.name)
 
         # Wildflowers
         for obj in tmx_data.get_layer_by_name('Decoration'):
@@ -69,7 +71,7 @@ class CameraGroup(pygame.sprite.Group):
         for layer in LAYERS.values():
             self.offset.x = player.rect.centerx - SCREEN_WIDTH / 2
             self.offset.y = player.rect.centery - SCREEN_HEIGHT / 2
-            for sprite in self.sprites():
+            for sprite in sorted(self.sprites(), key=lambda sprite: sprite.rect.centery):
 
                 if sprite.z == layer:
                     offset_rect = sprite.rect.copy()
