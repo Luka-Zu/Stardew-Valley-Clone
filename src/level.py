@@ -47,7 +47,11 @@ class Level:
         for obj in tmx_data.get_layer_by_name('Decoration'):
             WildFlower(pos=(obj.x, obj.y), surf=obj.image, group=[self.all_sprites, self.collision_sprites])
 
-        self.player = Player((640, 340), self.all_sprites, self.collision_sprites)
+        # Player
+        for obj in tmx_data.get_layer_by_name('Player'):
+            if obj.name == "Start":
+                self.player = Player((obj.x, obj.y), self.all_sprites, self.collision_sprites)
+
         Generic(pos=(0, 0), surf=pygame.image.load('graphics/world/ground.png').convert_alpha(),
                 group=self.all_sprites, z=LAYERS['ground'])
 
